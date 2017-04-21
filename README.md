@@ -1,9 +1,12 @@
-# cnsymbol
+# xNLP
 
-1. [UTF8 Chinese Symbols](cnsymbols.py)
+do a naive nlp tool-chain by myself.
 
-    The collection of Chinese symbols for python , including chinese punctuation, digits, blank.
+TODO
 
-2. [UTF8 Character CharType](utf8_chartype_list.txt)
+[ ] ML
+[ ] MT
+[ ] QA
+...
 
-    Some types set for some Chinese/English UTF8 characters,  including Punc, Special symbol, Digit, Letter, etc.
+A long way to go, Don't die!
