@@ -12,7 +12,7 @@ class GraphNode(object):
     basic graph node.
     '''
     def __init__(self, parents=()):
-        self._cached_value = None
+        self._value = None
         # target-node => grad value
         self._cached_grad = WeakKeyDictionary()
         self._parents = parents
@@ -51,9 +51,9 @@ class GraphNode(object):
         get the node value.
         return the cached value if have, else do forward.
         '''
-        if self._cached_value is None:
-            self._cached_value = self._do_forward2get_value()
-        return self._cached_value
+        if self._value is None:
+            self._value = self._do_forward2get_value()
+        return self._value
     
     def _do_forward2get_value(self):
         '''
@@ -84,7 +84,7 @@ class GraphNode(object):
         for child, pos in node_children_pos:
             to_child_grad = child.calc_grad2some_node(self)
             if to_child_grad != 0:
-                child2node_grad = child.calc_expr_grad(pos)
+                child2node_grad = child.calc_node_expr_grad(pos)
             else:
                 child2node_grad = 0
             current_branch_grad = to_child_grad * child2node_grad
